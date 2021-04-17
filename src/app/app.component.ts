@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,12 +7,18 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('f') signupForm: NgForm; // you can use viewchild to access the NgForm as well and without submitting beforehand
+
   suggestUserName() {
     const suggestedName = 'Superuser';
   }
 
   // onSubmit(form: HTMLFormElement) {
-  onSubmit(form: NgForm) {
-    console.log(form.form.value);
+  // onSubmit(form: NgForm) {
+  //   console.log(form.form.value);
+  // }
+  onSubmit(){
+    console.log(this.signupForm);
   }
+
 }

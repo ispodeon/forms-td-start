@@ -44,15 +44,26 @@ export class AppComponent {
   //   console.log(form.form.value);
   // }
   onSubmit(){
-    console.log(this.signupForm);
-
+    // console.log(this.signupForm);
+    this.submitted = true;
     this.user.username = this.signupForm.value.userData.username;
     this.user.email = this.signupForm.value.userData.email;
     this.user.secretQuestion = this.signupForm.value.secret;
     this.user.answer = this.signupForm.value.questionAnswer;
     this.user.gender = this.signupForm.value.gender;
     
-    this.submitted = true;
+    this.signupForm.reset(); // resets form
+    
+    // const suggestedName = 'Superuser';
+    // this.signupForm.reset({
+    //   userData: {
+    //     username: suggestedName,
+    //       email: ''
+    //   },
+    //   secret: 'pet',
+    //   questionAnswer: '',
+    //   gender: 'male'
+    // }); // resets the form with specific values
   }
 
 }
